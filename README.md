@@ -100,6 +100,28 @@
 |  **6-311G(2d)**   |`[128, 41, 50,107]`|`[ 42,  0,  0, 32]`|`[ 86, 41, 50, 75]`|   326    |    74    |   252    |  49.30   |
 
 
+## Comparison of Excitation energies:
+ The following table summarises the excitation energies compared across each basis set/freezing scheme combination.
+ `Ex_avg` indicates the average of the excitation energies for the two lowest states.
+ `delta Ex` indicates the difference between the two lowest excitation energies, which should be degenerate.
+
+|   Basis    |Scheme                        | Ex_avg (eV)| delta Ex (eV)|
+|:----------:|:----------------------------:|-----------:|-------------:|
+|   6-31G    |frozen_core                   |      3.3911|       0.00013|
+|   6-31G    |frozen_sigma_ov_frozen_match  |      3.6046|       0.00147|
+|   6-31G    |frozen_sigma_ov_active_match  |      4.0900|       0.00256|
+|   6-31Gs   |frozen_core                   |      3.3683|       0.00013|
+|   6-31Gs   |frozen_sigma_ov_frozen_match  |      3.5594|       0.00013|
+|   6-31Gs   |frozen_sigma_ov_active_match  |      4.0200|       0.00283|
+| 6-311G(2d) |frozen_core                   |      3.3264|       0.00013|
+| 6-311G(2d) |frozen_sigma_ov_frozen_match  |      3.5262|       0.00017|
+| 6-311G(2d) |frozen_sigma_ov_active_match  |      4.2033|       0.00091|
+
+The total picture from all of the factors I have outlined shows that the `frozen_sigma_ov_frozen_match` 
+provides the "best" results. I find Excitation energies that are ~0.2eV above the frozen core results. I note that 
+degeneracy is reproduced within ~1.0E-3 eV for larger basis sets (note: degeneracy is lifted somewhat more severely 
+for the smallest 6-31G basis set). Considering these results are much closer to those of the `frozen_core` scheme while still  
+allowing for a significant reduction in wall time cost of the calculation.
 
 ## Output files
 #### frozen_core
